@@ -16,17 +16,34 @@ function handleClickLinkButton(e) {
       console.log('The link was clicked.');
 }
 
+function handleError(error) {
+  alert(error);
+  console.log(error.message);
+}
+
 
 class App extends Component {
 
   getStudentInformation() {
-    fetch('http://localhost:8083/welcome/student?name=KatieCallahan&id=456789')
-    .then(res => res.json())
-    .then((data) => {
-      this.setState({ contacts: data })
+    return fetch("http://localhost:8083/welcome/student?name=KatieCallahan&id=456789")
+    .then(response => {
+      if (!response.ok) {
+        this.handleResponseError(response);
+      }
+      return response.json();
     })
-    .catch(console.log)
+    .then(json => {
+      console.log("Retrieved items:");
+      console.log(json);
+      console.log(json.message);
+      console.log(json.gender);
+    })
+    .catch(error => {
+      handleError(error);
+    });
   }
+
+
 
   state = {
     questions: [
@@ -63,8 +80,13 @@ class App extends Component {
           {title} 
           {videoURL}
           {mission}
-          <button className="Button" onClick={this.displayQuestion}>About Us</button>
           {questions}
+          <p>
+          <button className="Button" onClick={this.displayQuestion}>About Us</button>
+          </p>
+          <p>
+          <button className="Button" onClick={this.getStudentInformation}> Get Our Student</button>
+          </p>
           {footer}
           </div>
       )
