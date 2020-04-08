@@ -1,0 +1,65 @@
+* {    
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.footer {
+  position: relative;
+  margin-top: 50px;
+  clear:both;
+  padding-top:50px;
+} 
+
+.App {
+  text-align: center;
+  justify-content: center;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.Header {
+  background-color: black;
+  color: white;
+}
+
+.Button {
+  background: none!important;
+  border: none;
+  padding: 0!important;
+  /*optional*/
+  font-family: arial, sans-serif;
+  /*input has OS specific font-family*/
+  color: #069;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.Player {
+  display: flex;
+  justify-content: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
